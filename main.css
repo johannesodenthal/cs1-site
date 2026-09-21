@@ -1,13 +1,14 @@
 :root {
     --font-color: #0a0a0a;
     --bg-color: #ffffff;
+    --link-color: #3f6f73;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --font-color: #f5f5f5;
         --bg-color: #000000;
-        --link-color: #d3d3d3;
+        --link-color: #6f9fa3;
     }
 }
 
@@ -60,7 +61,7 @@ h2 {
     a:hover,
     a:active {
         padding: 0.25rem;
-        color: inherit;
+        color: var(--link-color);
         text-decoration: none;
     }
 
@@ -123,7 +124,7 @@ h2 {
 
 .plain-link,
 .plain-link:visited {
-  color: #3f6f73;
+  color: var(--link-color);
   text-decoration: none;
 }
 
