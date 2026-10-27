@@ -322,9 +322,8 @@ a:focus-visible {
 .home-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.1rem; }
 .home-container .plain-link:hover { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.2em; }
 .class-details { font-size: 0.95rem; line-height: 1.7; }
-.class-details p { margin: 0.25rem 0 0; }
+.class-details p { margin: 0.25rem 0 0; white-space: nowrap; }
 .metadata-separator { margin: 0 0.55rem; color: var(--muted-color); }
-.contact-line { white-space: nowrap; }
 .class-contact { display: inline; color: var(--muted-color); }
 
 .home-qr { grid-area: qr; justify-self: end; margin: 0; text-align: center; }
@@ -375,6 +374,6 @@ a:focus-visible {
   .home-qr { justify-self: start; margin-top: 0.5rem; }
   .home-header h1 { font-size: clamp(2rem, 7vw, 2.75rem); }
   .class-details { font-size: 0.875rem; }
-  .contact-line { font-size: clamp(0.7rem, 3.5vw, 0.875rem); }
+  .class-details p { white-space: normal; }
   .metadata-separator { margin: 0 0.25rem; }
 }
