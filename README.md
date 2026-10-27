@@ -1,7 +1,7 @@
 # CS1 Exercise Session
 
 Static site for cs.jodenthal.com. `index.html` links to the weekly gallery in
-`slides.html`; clicking a first-slide preview opens the corresponding PDF.
+`slides.html`; clicking a first-slide preview opens the corresponding PDF in a new tab.
 
 The gallery and its public assets are generated from the TA workspace:
 
