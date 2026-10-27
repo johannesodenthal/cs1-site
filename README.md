@@ -22,3 +22,31 @@ The site needs no server-side code or JavaScript. Publish the `main` branch usin
 the repository's existing GitHub Pages configuration; keep `CNAME` unchanged.
 
 PDFs are read directly from the weekly folders and filtered with native PDFKit (no extra dependencies). There is no intermediate export folder. Shared slide design lives in the TA workspace under `shared/presentation/`; `--all --watch` rebuilds prepared decks and updates this site after successful changes.
+
+## Chat link previews
+
+The homepage and `slides.html` each have their own composed 1200 × 630 PNG in
+`social/`, with Open Graph and large-image card metadata. Images use the site's
+light palette regardless of the recipient's theme. The gallery preview shows the
+first three weeks; the homepage preview uses the current resource labels.
+
+To regenerate both images and update both pages' sharing metadata:
+
+```sh
+python3 scripts/social_previews.py
+```
+
+The default renderer uses native macOS AppKit via Swift. An optional HTML/CSS
+renderer is available with `--browser "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"`
+(or another Chromium executable). Ordinary weekly builds and slide syncs do not
+launch a browser or regenerate social images; they preserve the slides metadata.
+
+When refreshing already published previews, increment `VERSION` in
+`scripts/social_previews.py` before regenerating. This creates new image URLs;
+keep old versions available for previously cached links. Include the generated
+images and both HTML pages when publishing. Existing search-indexing settings
+remain in place. Chat clients control preview size, crop and cache lifetime.
+
+After publishing, check that both pages' absolute image URLs load over HTTPS and
+share `https://cs.jodenthal.com/` and `https://cs.jodenthal.com/slides.html` in
+Messages to check their distinct previews. Previously shared links may stay cached.
