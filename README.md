@@ -10,7 +10,9 @@ python3 scripts/sync-slides.py
 ```
 
 Run this from the TA workspace root before publishing. It synchronises the latest
-weekly `slides.pdf` files, first-page PNG previews and topic lists. Add topics for
+weekly `slides.pdf` files, keeping only the final build of each logical slide, plus
+first-page PNG previews and topic lists. Page selection uses each week’s
+`presentation/slide-map.json`; local presentation PDFs keep every animation step. Add topics for
 new weeks in `scripts/slides-metadata.json`. The normal weekly build command
 (`python3 scripts/build-week.py NN`) also runs the sync.
 
@@ -19,4 +21,4 @@ Instructor notes, grading feedback and solution references stay in the TA worksp
 The site needs no server-side code or JavaScript. Publish the `main` branch using
 the repository's existing GitHub Pages configuration; keep `CNAME` unchanged.
 
-PDFs are read directly from the weekly folders. There is no intermediate export folder. Shared slide design lives in the TA workspace under `shared/presentation/`; `--all --watch` rebuilds prepared decks and updates this site after successful changes.
+PDFs are read directly from the weekly folders and filtered with native PDFKit (no extra dependencies). There is no intermediate export folder. Shared slide design lives in the TA workspace under `shared/presentation/`; `--all --watch` rebuilds prepared decks and updates this site after successful changes.

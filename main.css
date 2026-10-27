@@ -197,7 +197,6 @@ img {
 }
 
 .slides-intro {
-  max-width: 39rem;
   color: var(--muted-color);
   line-height: 1.6;
 }
