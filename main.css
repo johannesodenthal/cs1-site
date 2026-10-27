@@ -129,7 +129,8 @@ h2 {
 }
 
 .plain-link:hover {
-  color: #28565a;
+  color: color-mix(in srgb, var(--link-color) 80%, var(--font-color));
+  text-decoration: none;
 }
 
 img {
@@ -320,7 +321,6 @@ a:focus-visible {
 
 .home-header { grid-area: header; margin: 0; align-self: center; min-width: 0; }
 .home-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.1rem; }
-.home-container .plain-link:hover { color: var(--link-color); text-decoration: underline; text-underline-offset: 0.2em; }
 .class-details { font-size: 0.95rem; line-height: 1.7; }
 .class-details p { margin: 0.25rem 0 0; white-space: nowrap; }
 .metadata-separator { margin: 0 0.55rem; color: var(--muted-color); }
