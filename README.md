@@ -1,52 +1,16 @@
 # CS1 Exercise Session
 
-Static site for cs.jodenthal.com. `index.html` links to the weekly gallery in
-`slides.html`; clicking a first-slide preview opens the corresponding PDF in a new tab.
+Slides, course links and tools for Johannes Odenthal’s Informatik I exercise sessions at ETH Zurich.
 
-The gallery and its public assets are generated from the TA workspace:
+**Website:** [cs.jodenthal.com](https://cs.jodenthal.com/)
 
-```sh
-python3 scripts/sync-slides.py
-```
+## Project
 
-Run this from the TA workspace root before publishing. It synchronises the latest
-weekly `slides.pdf` files, keeping only the final build of each logical slide, plus
-first-page PNG previews and topic lists. Page selection uses each week’s
-`presentation/slide-map.json`; local presentation PDFs keep every animation step. Add topics for
-new weeks in `scripts/slides-metadata.json`. The normal weekly build command
-(`python3 scripts/build-week.py NN`) also runs the sync.
+A static HTML/CSS site hosted on GitHub Pages. `index.html` is the homepage;
+`slides.html` lists weekly slide PDFs with preview images.
 
-Only public slide PDFs and preview images belong in `slides/` and `previews/`.
-Instructor notes, grading feedback and solution references stay in the TA workspace.
-The site needs no server-side code or JavaScript. Publish the `main` branch using
-the repository's existing GitHub Pages configuration; keep `CNAME` unchanged.
+## Local preview
 
-PDFs are read directly from the weekly folders and filtered with native PDFKit (no extra dependencies). There is no intermediate export folder. Shared slide design lives in the TA workspace under `shared/presentation/`; `--all --watch` rebuilds prepared decks and updates this site after successful changes.
+Open `index.html` in a browser. No installation or build step is required.
 
-## Chat link previews
-
-The homepage and `slides.html` each have their own composed 1200 × 630 PNG in
-`social/`, with Open Graph and large-image card metadata. Images use the site's
-light palette regardless of the recipient's theme. The gallery preview shows the
-first three weeks; the homepage preview uses the current resource labels.
-
-To regenerate both images and update both pages' sharing metadata:
-
-```sh
-python3 scripts/social_previews.py
-```
-
-The default renderer uses native macOS AppKit via Swift. An optional HTML/CSS
-renderer is available with `--browser "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"`
-(or another Chromium executable). Ordinary weekly builds and slide syncs do not
-launch a browser or regenerate social images; they preserve the slides metadata.
-
-When refreshing already published previews, increment `VERSION` in
-`scripts/social_previews.py` before regenerating. This creates new image URLs;
-keep old versions available for previously cached links. Include the generated
-images and both HTML pages when publishing. Existing search-indexing settings
-remain in place. Chat clients control preview size, crop and cache lifetime.
-
-After publishing, check that both pages' absolute image URLs load over HTTPS and
-share `https://cs.jodenthal.com/` and `https://cs.jodenthal.com/slides.html` in
-Messages to check their distinct previews. Previously shared links may stay cached.
+Maintenance and publishing details are in [AGENTS.md](AGENTS.md).
